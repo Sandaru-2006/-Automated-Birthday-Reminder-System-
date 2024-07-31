@@ -3,9 +3,9 @@ from pandas import *
 import random
 from twilio.rest import Client
 
-my_num = "+94760341056"
-account_sid = "AC3f50db43ce14fa5e5449098c197da718"
-auth_token = "774304050cd0ae71041bf49827678655"
+my_num = "YOUR MOBILE NUMBER"
+account_sid = "YOUR TWILLIO ACC SID"
+auth_token = "YOUR TWILLIO AUTH TOKEN"
 
 today = dt.datetime.now()
 
@@ -26,12 +26,13 @@ if tdy_tuple in birthdays_dict:
     client = Client(account_sid, auth_token)
 
     message = client.messages.create(
-        from_="whatsapp:+14155238886",
+        from_="whatsapp: YOUR TWILLIO VIRTUAL NUMBER",
         body=f"Its {birthday_person_name}'s Birthday Wish them!!!\n\n{contents}",
-        to="whatsapp:+94760341056"
+        to=f"whatsapp:{my_num}"
     )
     print(message.status)
 
+    ""IF YOU WANT TO STRAIGHT AWAY SEND AN EMAIL TO THE BIRTHDAY PERSON USE THIS CODE...AND REMEBER TO ADD THEIR EMAILS TO THE CSV""
     # with smtplib.SMTP("smtp.gmail.com", 587) as connection:
     #     receivers_email = birthday_person["email"]
     #     connection.starttls()
